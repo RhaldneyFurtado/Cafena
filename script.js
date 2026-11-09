@@ -141,3 +141,23 @@ if (saberMaisBtn && moreText) {
     }
   };
 }
+
+/*INTERATIVIDADE DO MENU MOBILE */
+
+let menuBtn = document.querySelector("#menu-btn");
+let navbar = document.querySelector(".navbar");
+
+if (menuBtn && navbar) {
+  menuBtn.onclick = (event) => {
+    event.preventDefault();
+    navbar.classList.toggle("active");
+    cartContainer.classList.remove("active"); // Fecha o carrinho se estiver aberto
+  };
+
+  /* Fecha o menu ao clicar em qualquer link da navegação */
+  document.querySelectorAll(".navbar a").forEach((link) => {
+    link.onclick = () => {
+      navbar.classList.remove("active");
+    };
+  });
+}

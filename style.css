@@ -187,14 +187,23 @@ section {
   justify-content: space-between;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+  flex-wrap: wrap; /* Permite adaptação fluida em telas menores */
+  gap: 1.5rem;
 }
 
 /*Estilizando apenas os links da navbar*/
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .navbar a {
   margin: 0 1rem;
   font-size: 1.8rem;
   color: #fff;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 /*Efeito de hover nos links da navbar*/
@@ -438,4 +447,28 @@ section {
 /*Efeito de hover nos ícones do rodapé*/
 .footer .share img:hover {
   background: var(--main-color);
+}
+
+/*ESTILOS RESPONSIVOS ADAPTATIVOS PARA TELAS MENORES E CELULARES*/
+@media (max-width: 768px) {
+  .header section {
+    justify-content: center;
+  }
+
+  .navbar a {
+    margin: 0.5rem 0.8rem;
+    font-size: 1.6rem;
+  }
+
+  .search-box input {
+    width: 12rem;
+  }
+
+  .content h3 {
+    font-size: 3.5rem;
+  }
+
+  .content p {
+    font-size: 1.6rem;
+  }
 }
