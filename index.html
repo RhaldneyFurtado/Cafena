@@ -2,28 +2,30 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafeteria Aromas & Sabor</title>
+    <!-- Ícone da Aba do Navegador (Favicon) -->
+    <link rel="icon" type="image/png" href="./Assets/Imagens/logo.png" />
+    <link rel="stylesheet" href="style.css" />
 
-    <!--Importação das fontes do Google Fonts-->
+    <!-- Importação das fontes do Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;300;400;500;700&display=swap"
       rel="stylesheet"
     />
-    <title>Cafeteria</title>
   </head>
   <body>
-    <!--Cabeçalho principal do site-->
+    <!-- Cabeçalho principal do site -->
     <header class="header">
       <section>
-        <!--Logo na esquerda-->
+        <!-- Logo na esquerda -->
         <a href="#" class="logo">
           <img src="./Assets/Imagens/logo.png" alt="logo" />
         </a>
 
-        <!--Navbar no centro-->
+        <!-- Navbar no centro -->
         <nav class="navbar">
           <a href="#home">Home</a>
           <a href="#about">Sobre</a>
@@ -32,7 +34,7 @@
           <a href="#address">Endereço</a>
         </nav>
 
-        <!--Ícones interativos na direita-->
+        <!-- Ícones interativos na direita -->
         <div class="icons">
           <a href="#" id="search-btn">
             <img
@@ -49,18 +51,18 @@
               src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png"
               alt="cart"
             />
-            <!--Contador de itens no carrinho-->
+            <!-- Contador de itens no carrinho -->
             <span id="cart-count">0</span>
           </a>
         </div>
 
-        <!--Painel lateral do carrinho-->
+        <!-- Painel lateral do carrinho -->
         <div class="cart-items-container">
           <div class="cart-header">
             <h3>Seu Carrinho</h3>
           </div>
           <div class="cart-items-list" id="cart-items-list">
-            <!--Itens adicionados dinamicamente via JS-->
+            <!-- Itens adicionados dinamicamente via JS -->
           </div>
           <div class="cart-total">
             <h3>Total: R$ <span id="cart-total-price">0,00</span></h3>
@@ -70,23 +72,22 @@
       </section>
     </header>
 
-    <!--Seção principal de apresentação-->
+    <!-- Seção principal de apresentação -->
     <div class="home-container" id="home">
       <section>
         <div class="content">
-          <h3>VENHA CONHECER O MELHOR CAFÉ DA REGIÃO</h3>
+          <h3>EXPERIMENTE O MELHOR CAFÉ ARTESANAL DA SUA REGIÃO</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Necessitatibus magnam adipisci porro numquam nihil impedit similique
-            eius non repudiandae sed eaque facilis facere sit, id veritatis
-            provident pariatur voluptas labore!
+            Grãos 100% selecionados nas montanhas mais nobre do país, torrados
+            artesanalmente para proporcionar notas marcantes, aroma
+            inconfundível e momentos únicos de prazer a cada gole tomado.
           </p>
-          <a href="#menu" class="btn">Pegue o seu Agora!</a>
+          <a href="#menu" class="btn">Explore o Cardápio</a>
         </div>
       </section>
     </div>
 
-    <!--Seção sobre nós-->
+    <!-- Seção sobre nós -->
     <section class="about" id="about">
       <h2 class="title">Sobre <span>Nós</span></h2>
       <div class="row">
@@ -94,39 +95,38 @@
           <img src="./Assets/Imagens/about-img.jpg" alt="sobre nós" />
         </div>
         <div class="content">
-          <h3>O Que Faz Nosso Café Especial</h3>
+          <h3>A Paixão Pelo Café Perfeito em Cada Xícara</h3>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore
-            quasi accusantium beatae laborum molestiae! Dolores officiis quam
-            dolore nihil omnis tenetur nulla, impedit animi et voluptatem quis,
-            reprehenderit quas quia!
+            Nascemos do desejo de transformar o hábito de tomar café em uma
+            verdadeira experiência sensorial. Trabalhamos exclusivamente com
+            produtores locais e práticas sustentáveis, garantindo que todo o
+            processo — da colheita à xícara — respeite a essência do grão.
           </p>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio fugit
-            reprehenderit officia commodi accusantium itaque modi aliquid magni
-            esse autem nostrum animi, non rem ducimus maiores minus eius impedit
-            dolor!
+            Nosso espaço foi cuidadosamente planejado para oferecer um ambiente
+            acolhedor, ideal tanto para reuniões de trabalho quanto para relaxar
+            apreciando uma infusão fresca e saborosa.
           </p>
 
-          <!--Texto extra revelado ao clicar no botão-->
+          <!-- Texto extra revelado ao clicar no botão -->
           <p class="extra-content" id="more-text">
-            Nossos grãos são colhidos manualmente nas montanhas mais altas e
-            selecionados um a um. Isso garante um aroma incomparável e uma torra
-            perfeita para o seu paladar.
+            Nossos baristas são profissionais certificados dedicados à extração
+            perfeita, controlando temperatura, pressão e tempo para extrair o
+            melhor de cada blend exclusivo da casa.
           </p>
 
-          <!--Botão interativo de expansão-->
+          <!-- Botão interativo de expansão -->
           <a href="#" class="btn" id="saber-mais-btn">Saiba Mais</a>
         </div>
       </div>
     </section>
 
-    <!--Seção do menu de produtos-->
+    <!-- Seção do menu de produtos -->
     <section class="menu" id="menu">
       <h2 class="title">Nosso <span>Menu</span></h2>
 
       <div class="box-container">
-        <!--Item 1 do menu-->
+        <!-- Item 1 do menu -->
         <div class="box">
           <img src="./Assets/Imagens/menu-1.png" alt="item-1" />
           <h3 class="product-name">Café Com Canela</h3>
@@ -136,50 +136,50 @@
           <a href="#" class="btn add-to-cart-btn">Adicionar ao Carrinho</a>
         </div>
 
-        <!--Item 2 do menu-->
+        <!-- Item 2 do menu -->
         <div class="box">
           <img src="./Assets/Imagens/menu-2.png" alt="item-2" />
-          <h3 class="product-name">Café Com Leite</h3>
+          <h3 class="product-name">Café Com Leite Cremoso</h3>
           <div class="price">
             R$ <span class="product-price">12,99</span> <span> R$ 15,99</span>
           </div>
           <a href="#" class="btn add-to-cart-btn">Adicionar ao Carrinho</a>
         </div>
 
-        <!--Item 3 do menu-->
+        <!-- Item 3 do menu -->
         <div class="box">
           <img src="./Assets/Imagens/menu-3.png" alt="item-3" />
-          <h3 class="product-name">Capuccino</h3>
+          <h3 class="product-name">Capuccino da Casa</h3>
           <div class="price">
             R$ <span class="product-price">13,99</span> <span> R$ 18,99</span>
           </div>
           <a href="#" class="btn add-to-cart-btn">Adicionar ao Carrinho</a>
         </div>
 
-        <!--Item 4 do menu-->
+        <!-- Item 4 do menu -->
         <div class="box">
           <img src="./Assets/Imagens/menu-4.png" alt="item-4" />
-          <h3 class="product-name">Café Com Chocolate</h3>
+          <h3 class="product-name">Mocha com Chocolate Belga</h3>
           <div class="price">
             R$ <span class="product-price">11,99</span> <span> R$ 12,99</span>
           </div>
           <a href="#" class="btn add-to-cart-btn">Adicionar ao Carrinho</a>
         </div>
 
-        <!--Item 5 do menu-->
+        <!-- Item 5 do menu -->
         <div class="box">
           <img src="./Assets/Imagens/menu-5.png" alt="item-5" />
-          <h3 class="product-name">Café Expresso Cremoso</h3>
+          <h3 class="product-name">Espresso Duplo Especial</h3>
           <div class="price">
             R$ <span class="product-price">8,99</span> <span> R$ 13,99</span>
           </div>
           <a href="#" class="btn add-to-cart-btn">Adicionar ao Carrinho</a>
         </div>
 
-        <!--Item 6 do menu-->
+        <!-- Item 6 do menu -->
         <div class="box">
           <img src="./Assets/Imagens/menu-6.png" alt="item-6" />
-          <h3 class="product-name">Café Puro</h3>
+          <h3 class="product-name">Café Coado Rústico</h3>
           <div class="price">
             R$ <span class="product-price">11,20</span> <span> R$ 15,00</span>
           </div>
@@ -188,19 +188,19 @@
       </div>
     </section>
 
-    <!--Seção de avaliações dos clientes-->
+    <!-- Seção de avaliações dos clientes -->
     <section class="review" id="review">
       <h2 class="title">Nossos <span>Clientes</span></h2>
 
       <div class="box-container">
-        <!--Avaliação 1-->
+        <!-- Avaliação 1 -->
         <div class="box">
           <img src="./Assets/Imagens/quote-img.png" alt="comentários" />
           <h3>Comentário:</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptates, quod, quia, voluptatibus quos voluptatum quibusdam
-            quibusdam.
+            "O melhor espresso da região! O ambiente é extremamente aconchegante
+            e o atendimento impecável. Virei cliente fiel para começar bem o
+            dia."
           </p>
           <img
             src="./Assets/Imagens/pic-1.png"
@@ -242,14 +242,14 @@
           </div>
         </div>
 
-        <!--Avaliação 2-->
+        <!-- Avaliação 2 -->
         <div class="box">
           <img src="./Assets/Imagens/quote-img.png" alt="comentários" />
           <h3>Comentário:</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptates, quod, quia, voluptatibus quos voluptatum quibusdam
-            quibusdam.
+            "Simplesmente apaixonada pelo Capuccino! A cremosidade e o
+            equilíbrio dos sabores são perfeitos. Ótimo lugar para uma pausa no
+            trabalho."
           </p>
           <img
             src="./Assets/Imagens/pic-2.png"
@@ -285,14 +285,14 @@
           </div>
         </div>
 
-        <!--Avaliação 3-->
+        <!-- Avaliação 3 -->
         <div class="box">
           <img src="./Assets/Imagens/quote-img.png" alt="comentários" />
           <h3>Comentário:</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-            voluptates, quod, quia, voluptatibus quos voluptatum quibusdam
-            quibusdam.
+            "Qualidade superior e muita dedicação em cada detalhe. Dá para
+            perceber o cuidado na seleção dos grãos artesanais. Recomendo
+            demais!"
           </p>
           <img
             src="./Assets/Imagens/pic-3.png"
@@ -336,7 +336,7 @@
       </div>
     </section>
 
-    <!--Seção de localização-->
+    <!-- Seção de localização -->
     <section class="address" id="address">
       <h2 class="title">Nosso <span>Endereço</span></h2>
       <iframe
@@ -350,7 +350,7 @@
       ></iframe>
     </section>
 
-    <!--Rodapé da página com redes sociais-->
+    <!-- Rodapé da página com redes sociais -->
     <section class="footer">
       <div class="share">
         <a href="https://instagram.com" target="_blank">
@@ -383,7 +383,7 @@
       </div>
     </section>
 
-    <!--Vinculando o arquivo JavaScript-->
+    <!-- Vinculando o arquivo JavaScript -->
     <script src="script.js"></script>
   </body>
 </html>

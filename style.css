@@ -11,6 +11,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   outline: none;
   border: none;
   text-decoration: none;
@@ -22,11 +23,14 @@
 /*Fundo da página*/
 body {
   background: var(--bg);
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 /*Rolagem suave da página*/
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /*Estilizando os ícones da barra de navegação*/
@@ -73,6 +77,7 @@ html {
   box-shadow: -0.5rem 0 1rem rgba(0, 0, 0, 0.5);
   border-left: var(--border);
   overflow-y: auto;
+  z-index: 1000;
 }
 
 /*Ativa a exibição do carrinho*/
@@ -209,6 +214,7 @@ section {
   cursor: pointer;
   margin-top: 1rem;
   display: inline-block;
+  border-radius: 0.5rem;
 }
 
 /*Efeito de hover nos botões*/
@@ -238,7 +244,7 @@ section {
 /*Estilizando o título principal da home*/
 .content h3 {
   color: #fff;
-  font-size: 6rem;
+  font-size: 5rem;
 }
 
 /*Estilizando o parágrafo principal da home*/
@@ -285,6 +291,16 @@ section {
   align-items: center;
   background-color: var(--black);
   gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.about .row > div {
+  flex: 1 1 45rem;
+}
+
+.about .row img {
+  width: 100%;
+  object-fit: cover;
 }
 
 /*Estilizando o conteúdo dentro da linha da seção "Sobre nós"*/
@@ -385,6 +401,7 @@ section {
   height: 7rem;
   width: 7rem;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 /*Estilizando a seção de endereço*/
@@ -392,6 +409,12 @@ section {
   display: flex;
   align-items: center;
   flex-direction: column;
+}
+
+.address iframe {
+  width: 100%;
+  max-width: 900px;
+  height: 450px;
 }
 
 /*Estilizando a área do rodapé*/
