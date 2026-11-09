@@ -449,26 +449,53 @@ section {
   background: var(--main-color);
 }
 
-/*ESTILOS RESPONSIVOS ADAPTATIVOS PARA TELAS MENORES E CELULARES*/
+/* ==========================================
+   AJUSTES FINOS DE RESPONSIVIDADE PARA CELULAR
+   ========================================== */
+
 @media (max-width: 768px) {
+  /* Organiza os elementos do header em pilha centralizada no celular */
   .header section {
+    padding: 1rem;
+    gap: 1rem;
+    flex-direction: column;
     justify-content: center;
   }
 
+  /* Reduz o tamanho da logo no mobile */
+  .header .logo img {
+    height: 4rem;
+  }
+
+  /* Compacta os links da navbar para caberem confortavelmente lado a lado */
   .navbar a {
-    margin: 0.5rem 0.8rem;
-    font-size: 1.6rem;
+    margin: 0.3rem 0.6rem;
+    font-size: 1.4rem;
+  }
+
+  /* Ajusta o tamanho da caixa de pesquisa */
+  .search-box {
+    padding: 0.3rem 0.6rem;
   }
 
   .search-box input {
-    width: 12rem;
+    width: 9rem;
+    font-size: 1.3rem;
   }
 
+  /* Ajusta o tamanho dos ícones */
+  .icons img {
+    width: 2.4rem;
+    height: 2.4rem;
+    margin: 0.3rem;
+  }
+
+  /* Reduz o título principal da home para não estourar telas de smartphone */
   .content h3 {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
   }
 
   .content p {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 }
