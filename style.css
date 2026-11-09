@@ -1,0 +1,418 @@
+/*Váriaveis fixas*/
+:root {
+  --main-color: #d3ad7f;
+  --black: #13131a;
+  --bg: #010103;
+  --border: 0.1rem solid rgba(255, 255, 255, 0.3);
+  font-size: 10px;
+}
+
+/*Padronizando as configurações do navegador*/
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: 0.2s linear;
+  font-family: "Roboto", sans-serif;
+}
+
+/*Fundo da página*/
+body {
+  background: var(--bg);
+}
+
+/*Rolagem suave da página*/
+html {
+  scroll-behavior: smooth;
+}
+
+/*Estilizando os ícones da barra de navegação*/
+.icons img {
+  margin: 1rem;
+  cursor: pointer;
+}
+
+/*Efeito de hover nos ícones do cabeçalho*/
+.icons img:hover {
+  width: 40px;
+  height: 40px;
+  filter: invert(50%) sepia(29%) saturate(545%) hue-rotate(345deg)
+    brightness(89%) contrast(87%);
+}
+
+/*Estilizando o contador de itens no ícone do carrinho*/
+#cart-btn {
+  position: relative;
+}
+
+#cart-count {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  background: var(--main-color);
+  color: #fff;
+  border-radius: 50%;
+  padding: 0.1rem 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/*Estilizando o painel lateral deslizante do carrinho*/
+.cart-items-container {
+  position: absolute;
+  top: 100%;
+  right: -100%;
+  height: calc(100vh - 100%);
+  width: 35rem;
+  background: var(--black);
+  padding: 2rem;
+  transition: 0.3s linear;
+  box-shadow: -0.5rem 0 1rem rgba(0, 0, 0, 0.5);
+  border-left: var(--border);
+  overflow-y: auto;
+}
+
+/*Ativa a exibição do carrinho*/
+.cart-items-container.active {
+  right: 0;
+}
+
+/*Estilizando o cabeçalho do painel do carrinho*/
+.cart-header h3 {
+  color: var(--main-color);
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+/*Estilizando cada item dentro do carrinho*/
+.cart-item {
+  position: relative;
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+/*Estilizando a imagem do item no carrinho*/
+.cart-item img {
+  height: 6rem;
+  width: 6rem;
+  object-fit: cover;
+}
+
+/*Estilizando o nome do item no carrinho*/
+.cart-item .content h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  padding-bottom: 0.5rem;
+}
+
+/*Estilizando o preço do item no carrinho*/
+.cart-item .content .price {
+  font-size: 1.4rem;
+  color: var(--main-color);
+}
+
+/*Botão de remover item do carrinho*/
+.cart-item .remove-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+/*Efeito de hover no botão de remover item*/
+.cart-item .remove-btn:hover {
+  color: #ff4d4d;
+}
+
+/*Estilizando o rodapé do carrinho com o preço total*/
+.cart-total {
+  border-top: var(--border);
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+}
+
+/*Estilizando o texto do valor total*/
+.cart-total h3 {
+  font-size: 1.8rem;
+  color: #fff;
+  text-align: right;
+}
+
+/*Aplica largura total no botão dentro do carrinho*/
+.cart-items-container .btn {
+  width: 100%;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+/*Aplica este estilo para todas as tags section*/
+section {
+  padding: 3rem 2rem;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/*Configuração do header*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  border-bottom: var(--border);
+  background: var(--bg);
+}
+
+/*Define o layout flexível e espaçamento interno do header*/
+.header section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/*Estilizando apenas os links da navbar*/
+.navbar a {
+  margin: 0 1rem;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/*Efeito de hover nos links da navbar*/
+.navbar a:hover {
+  color: var(--main-color);
+  border-bottom: 0.2rem solid var(--main-color);
+  padding-bottom: 0.5rem;
+  font-size: 1.9rem;
+}
+
+/*Configuração padrão dos botões*/
+.btn {
+  background: var(--main-color);
+  color: #fff;
+  padding: 1rem 3rem;
+  font-size: 1.7rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  display: inline-block;
+}
+
+/*Efeito de hover nos botões*/
+.btn:hover {
+  letter-spacing: 0.1rem;
+}
+
+/*Configuração do container da página inicial*/
+.home-container {
+  background: url("./Assets/Imagens/home-img.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/*Centralizando a section principal da tela de início*/
+.home-container section {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/*Definindo largura máxima da caixa de conteúdo*/
+.content {
+  max-width: 60rem;
+}
+
+/*Estilizando o título principal da home*/
+.content h3 {
+  color: #fff;
+  font-size: 6rem;
+}
+
+/*Estilizando o parágrafo principal da home*/
+.content p {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 100;
+  line-height: 1.8;
+  padding: 1rem 0;
+}
+
+/*Esconde o conteúdo extra por padrão*/
+.extra-content {
+  display: none;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 0.1rem solid rgba(255, 255, 255, 0.1);
+  color: #d3ad7f !important;
+}
+
+/*Classe que será ativada via JavaScript para mostrar o texto*/
+.extra-content.show {
+  display: block;
+}
+
+/*Estilizando os títulos genéricos das seções*/
+.title {
+  font-size: 4rem;
+  color: var(--main-color);
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 4rem;
+}
+
+/*Estilizando o span dentro do título genérico*/
+.title span {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/*Estilizando o container da seção "Sobre nós"*/
+.about .row {
+  display: flex;
+  align-items: center;
+  background-color: var(--black);
+  gap: 1.5rem;
+}
+
+/*Estilizando o conteúdo dentro da linha da seção "Sobre nós"*/
+.about .row .content {
+  padding: 2rem;
+}
+
+/*Estilizando o título dentro da seção "Sobre nós"*/
+.about .row .content h3 {
+  font-size: 3rem;
+  color: #fff;
+}
+
+/*Estilizando os parágrafos dentro da seção "Sobre nós"*/
+.about .row .content p {
+  font-size: 1.6rem;
+  color: #fff;
+  padding: 1rem 0;
+  line-height: 1.8;
+}
+
+/*Estilizando o container em grid (usado no menu e nas avaliações)*/
+.box-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 1.5rem;
+}
+
+/*Estilizando cada caixa dentro do container do menu*/
+.menu .box-container .box {
+  text-align: center;
+  border: var(--border);
+  padding: 5rem;
+  cursor: pointer;
+}
+
+/*Estilizando a imagem dentro de cada caixa do menu*/
+.menu .box-container .box img {
+  height: 10rem;
+}
+
+/*Estilizando o título dentro de cada caixa do menu*/
+.menu .box-container .box h3 {
+  color: #fff;
+  font-size: 2rem;
+  padding: 1rem 0;
+}
+
+/*Estilizando o preço dentro de cada caixa do menu*/
+.menu .box-container .box .price {
+  color: #fff;
+  font-size: 2.5rem;
+  padding: 0.5rem 0;
+}
+
+/*Estilizando apenas o preço antigo (segundo span) com o risco*/
+.menu .box-container .box .price span:nth-child(2) {
+  font-size: 1.5rem;
+  text-decoration: line-through;
+  font-weight: 100;
+}
+
+/*Estilizando a caixa do menu ao passar o mouse*/
+.menu .box-container .box:hover {
+  background: #fff;
+}
+
+/*Estilizando os elementos dentro da caixa do menu ao passar o mouse*/
+.menu .box-container .box:hover > * {
+  color: var(--black);
+}
+
+/*Estilizando cada caixa da seção de avaliações*/
+.review .box-container .box {
+  border: var(--border);
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+/*Estilizando os parágrafos dentro da caixa de avaliação*/
+.review .box-container .box p {
+  font-size: 1.5rem;
+  color: #fff;
+  padding: 2rem 0;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/*Estilizando o título do cliente dentro da caixa de avaliação*/
+.review .box-container .box h3 {
+  color: #fff;
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+/*Estilizando a foto de perfil do cliente*/
+.review .box-container .box .user {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+}
+
+/*Estilizando a seção de endereço*/
+.address {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/*Estilizando a área do rodapé*/
+.footer {
+  text-align: center;
+}
+
+/*Estilizando o container dos ícones no rodapé*/
+.footer .share {
+  padding: 1rem 0;
+}
+
+/*Estilizando os ícones de redes sociais do rodapé*/
+.footer .share img {
+  margin: 0.3rem;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 1rem;
+}
+
+/*Efeito de hover nos ícones do rodapé*/
+.footer .share img:hover {
+  background: var(--main-color);
+}

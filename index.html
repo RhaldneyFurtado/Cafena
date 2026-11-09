@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--Importação das fontes do Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Cafeteria</title>
+  </head>
+  <body>
+    <!--Cabeçalho principal do site-->
+    <header class="header">
+      <section>
+        <!--Logo na esquerda-->
+        <a href="#" class="logo">
+          <img src="./Assets/Imagens/logo.png" alt="logo" />
+        </a>
+
+        <!--Navbar no centro-->
+        <nav class="navbar">
+          <a href="#home">Home</a>
+          <a href="#about">Sobre</a>
+          <a href="#menu">Menu</a>
+          <a href="#review">Avaliações</a>
+          <a href="#address">Endereço</a>
+        </nav>
+
+        <!--Ícones interativos na direita-->
+        <div class="icons">
+          <a href="#" id="search-btn">
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios/30/ffffff/search--v1.png"
+              alt="search"
+            />
+          </a>
+          <a href="#" id="cart-btn">
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png"
+              alt="cart"
+            />
+            <!--Contador de itens no carrinho-->
+            <span id="cart-count">0</span>
+          </a>
+        </div>
+
+        <!--Painel lateral do carrinho-->
+        <div class="cart-items-container">
+          <div class="cart-header">
+            <h3>Seu Carrinho</h3>
+          </div>
+          <div class="cart-items-list" id="cart-items-list">
+            <!--Itens adicionados dinamicamente via JS-->
+          </div>
+          <div class="cart-total">
+            <h3>Total: R$ <span id="cart-total-price">0,00</span></h3>
+          </div>
+          <a href="#" class="btn" id="checkout-btn">Finalizar Compra</a>
+        </div>
+      </section>
+    </header>
+
+    <!--Seção principal de apresentação-->
+    <div class="home-container" id="home">
+      <section>
+        <div class="content">
+          <h3>VENHA CONHECER O MELHOR CAFÉ DA REGIÃO</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Necessitatibus magnam adipisci porro numquam nihil impedit similique
+            eius non repudiandae sed eaque facilis facere sit, id veritatis
+            provident pariatur voluptas labore!
+          </p>
+          <a href="#menu" class="btn">Pegue o seu Agora!</a>
+        </div>
+      </section>
+    </div>
+
+    <!--Seção sobre nós-->
+    <section class="about" id="about">
+      <h2 class="title">Sobre <span>Nós</span></h2>
+      <div class="row">
+        <div>
+          <img src="./Assets/Imagens/about-img.jpg" alt="sobre nós" />
+        </div>
+        <div class="content">
+          <h3>O Que Faz Nosso Café Especial</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore
+            quasi accusantium beatae laborum molestiae! Dolores officiis quam
+            dolore nihil omnis tenetur nulla, impedit animi et voluptatem quis,
+            reprehenderit quas quia!
+          </p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio fugit
+            reprehenderit officia commodi accusantium itaque modi aliquid magni
+            esse autem nostrum animi, non rem ducimus maiores minus eius impedit
+            dolor!
+          </p>
+
+          <!--Texto extra revelado ao clicar no botão-->
+          <p class="extra-content" id="more-text">
+            Nossos grãos são colhidos manualmente nas montanhas mais altas e
+            selecionados um a um. Isso garante um aroma incomparável e uma torra
+            perfeita para o seu paladar.
+          </p>
+
+          <!--Botão interativo de expansão-->
+          <a href="#" class="btn" id="saber-mais-btn">Saiba Mais</a>
+        </div>
+      </div>
+    </section>
+
+    <!--Seção do menu de produtos-->
+    <section class="menu" id="menu">
+      <h2 class="title">Nosso <span>Menu</span></h2>
+
+      <div class="box-container">
+        <!--Item 1 do menu-->
+        <div class="box">
+          <img src="./Assets/Imagens/menu-1.png" alt="item-1" />
+          <h3 class="product-name">Café Com Canela</h3>
+          <div class="price">
+            R$ <span class="product-price">15,99</span> <span> R$ 20,99</span>
+          </div>
+          <a href="#" class="btn add-to-cart-btn">Adicionar ao Carrinho</a>
+        </div>
+
+        <!--Item 2 do menu-->
+        <div class="box">
+          <img src="./Assets/Imagens/menu-2.png" alt="item-2" />
+          <h3 class="product-name">Café Com Leite</h3>
+          <div class="price">
+            R$ <span class="product-price">12,99</span> <span> R$ 15,99</span>
+          </div>
+          <a href="#" class="btn add-to-cart-btn">Adicionar ao Carrinho</a>
+        </div>
+
+        <!--Item 3 do menu-->
+        <div class="box">
+          <img src="./Assets/Imagens/menu-3.png" alt="item-3" />
+          <h3 class="product-name">Capuccino</h3>
+          <div class="price">
+            R$ <span class="product-price">13,99</span> <span> R$ 18,99</span>
+          </div>
+          <a href="#" class="btn add-to-cart-btn">Adicionar ao Carrinho</a>
+        </div>
+
+        <!--Item 4 do menu-->
+        <div class="box">
+          <img src="./Assets/Imagens/menu-4.png" alt="item-4" />
+          <h3 class="product-name">Café Com Chocolate</h3>
+          <div class="price">
+            R$ <span class="product-price">11,99</span> <span> R$ 12,99</span>
+          </div>
+          <a href="#" class="btn add-to-cart-btn">Adicionar ao Carrinho</a>
+        </div>
+
+        <!--Item 5 do menu-->
+        <div class="box">
+          <img src="./Assets/Imagens/menu-5.png" alt="item-5" />
+          <h3 class="product-name">Café Expresso Cremoso</h3>
+          <div class="price">
+            R$ <span class="product-price">8,99</span> <span> R$ 13,99</span>
+          </div>
+          <a href="#" class="btn add-to-cart-btn">Adicionar ao Carrinho</a>
+        </div>
+
+        <!--Item 6 do menu-->
+        <div class="box">
+          <img src="./Assets/Imagens/menu-6.png" alt="item-6" />
+          <h3 class="product-name">Café Puro</h3>
+          <div class="price">
+            R$ <span class="product-price">11,20</span> <span> R$ 15,00</span>
+          </div>
+          <a href="#" class="btn add-to-cart-btn">Adicionar ao Carrinho</a>
+        </div>
+      </div>
+    </section>
+
+    <!--Seção de avaliações dos clientes-->
+    <section class="review" id="review">
+      <h2 class="title">Nossos <span>Clientes</span></h2>
+
+      <div class="box-container">
+        <!--Avaliação 1-->
+        <div class="box">
+          <img src="./Assets/Imagens/quote-img.png" alt="comentários" />
+          <h3>Comentário:</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+            voluptates, quod, quia, voluptatibus quos voluptatum quibusdam
+            quibusdam.
+          </p>
+          <img
+            src="./Assets/Imagens/pic-1.png"
+            alt="foto-cliente"
+            class="user"
+          />
+          <h3>João da Silva</h3>
+          <div class="stars">
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
+              alt="star"
+            />
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
+              alt="star"
+            />
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
+              alt="star"
+            />
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
+              alt="star"
+            />
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-glyphs/30/DBDB43/star-half-empty.png"
+              alt="star-half"
+            />
+          </div>
+        </div>
+
+        <!--Avaliação 2-->
+        <div class="box">
+          <img src="./Assets/Imagens/quote-img.png" alt="comentários" />
+          <h3>Comentário:</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+            voluptates, quod, quia, voluptatibus quos voluptatum quibusdam
+            quibusdam.
+          </p>
+          <img
+            src="./Assets/Imagens/pic-2.png"
+            alt="foto-cliente"
+            class="user"
+          />
+          <h3>Maria Do Carmo</h3>
+          <div class="stars">
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
+              alt="star"
+            />
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
+              alt="star"
+            />
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
+              alt="star"
+            />
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-glyphs/30/DBDB43/star-half-empty.png"
+              alt="star-half"
+            />
+          </div>
+        </div>
+
+        <!--Avaliação 3-->
+        <div class="box">
+          <img src="./Assets/Imagens/quote-img.png" alt="comentários" />
+          <h3>Comentário:</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+            voluptates, quod, quia, voluptatibus quos voluptatum quibusdam
+            quibusdam.
+          </p>
+          <img
+            src="./Assets/Imagens/pic-3.png"
+            alt="foto-cliente"
+            class="user"
+          />
+          <h3>Rhaldney Furtado</h3>
+          <div class="stars">
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
+              alt="star"
+            />
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
+              alt="star"
+            />
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
+              alt="star"
+            />
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
+              alt="star"
+            />
+            <img
+              width="30"
+              height="30"
+              src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
+              alt="star"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Seção de localização-->
+    <section class="address" id="address">
+      <h2 class="title">Nosso <span>Endereço</span></h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63202.45192783435!2d-34.915403700000006!3d-8.085849699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab1fad6113eb0d%3A0xce72a16ab5119e6d!2sThe%20Coffeetown%2C%20Co.!5e0!3m2!1spt-BR!2snl!4v1794176613032!5m2!1spt-BR!2snl"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>
+    </section>
+
+    <!--Rodapé da página com redes sociais-->
+    <section class="footer">
+      <div class="share">
+        <a href="https://instagram.com" target="_blank">
+          <img
+            width="50"
+            height="50"
+            src="https://img.icons8.com/ios/50/ffffff/instagram-new--v1.png"
+            alt="instagram"
+          />
+        </a>
+        <a
+          href="https://wa.me/5581999999999?text=Olá,%20gostaria%20de%20pedir%20um%20café!"
+          target="_blank"
+        >
+          <img
+            width="50"
+            height="50"
+            src="https://img.icons8.com/ios/50/ffffff/whatsapp--v1.png"
+            alt="whatsapp"
+          />
+        </a>
+        <a href="https://facebook.com" target="_blank">
+          <img
+            width="50"
+            height="50"
+            src="https://img.icons8.com/ios/50/ffffff/facebook-new.png"
+            alt="facebook"
+          />
+        </a>
+      </div>
+    </section>
+
+    <!--Vinculando o arquivo JavaScript-->
+    <script src="script.js"></script>
+  </body>
+</html>
