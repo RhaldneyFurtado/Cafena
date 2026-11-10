@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cafeteria Aromas & Sabor</title>
+    <title>Cafena | Café Artesanal</title>
+    <meta
+      name="description"
+      content="Cafena - O melhor café artesanal da sua região. Grãos selecionados, torra artesanal e experiência única em cada xícara."
+    />
     <!-- Ícone da Aba do Navegador (Favicon) -->
     <link rel="icon" type="image/png" href="./Assets/Imagens/logo.png" />
     <link rel="stylesheet" href="style.css" />
@@ -12,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;300;400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -21,8 +25,8 @@
     <header class="header">
       <section>
         <!-- Logo na esquerda -->
-        <a href="#" class="logo">
-          <img src="./Assets/Imagens/logo.png" alt="logo" />
+        <a href="#home" class="logo">
+          <img src="./Assets/Imagens/logo.png" alt="Cafena - Café Artesanal" />
         </a>
 
         <!-- Navbar no centro -->
@@ -36,38 +40,63 @@
 
         <!-- Ícones interativos na direita -->
         <div class="icons">
-          <a href="#" id="search-btn">
+          <!-- Botão de busca -->
+          <a href="#" id="search-btn" title="Buscar">
             <img
-              width="30"
-              height="30"
-              src="https://img.icons8.com/ios/30/ffffff/search--v1.png"
-              alt="search"
+              width="28"
+              height="28"
+              src="https://img.icons8.com/ios/50/ffffff/search--v1.png"
+              alt="Buscar"
             />
           </a>
-          <a href="#" id="cart-btn">
+
+          <!-- Ícone do carrinho com contador -->
+          <a href="#" id="cart-btn" title="Carrinho">
             <img
-              width="30"
-              height="30"
-              src="https://img.icons8.com/ios-glyphs/30/ffffff/shopping-cart--v1.png"
-              alt="cart"
+              width="28"
+              height="28"
+              src="https://img.icons8.com/ios-glyphs/50/ffffff/shopping-cart--v1.png"
+              alt="Carrinho"
             />
             <!-- Contador de itens no carrinho -->
             <span id="cart-count">0</span>
           </a>
+
+          <!-- Botão do menu mobile (hamburger) -->
+          <a href="#" id="menu-btn" title="Menu">
+            <img
+              width="28"
+              height="28"
+              src="https://img.icons8.com/ios-filled/50/ffffff/menu--v1.png"
+              alt="Menu"
+            />
+          </a>
         </div>
+
+        <!-- Formulário de busca (aparece ao clicar no ícone) -->
+        <form class="search-form" onsubmit="return false;">
+          <input
+            type="search"
+            id="search-box"
+            placeholder="Busque por um café..."
+            autocomplete="off"
+          />
+          <label for="search-box">⌕</label>
+        </form>
 
         <!-- Painel lateral do carrinho -->
         <div class="cart-items-container">
           <div class="cart-header">
             <h3>Seu Carrinho</h3>
+            <span class="cart-close" title="Fechar">&times;</span>
           </div>
           <div class="cart-items-list" id="cart-items-list">
             <!-- Itens adicionados dinamicamente via JS -->
           </div>
           <div class="cart-total">
             <h3>Total: R$ <span id="cart-total-price">0,00</span></h3>
+            <a href="#" class="btn" id="checkout-btn">Finalizar Compra</a>
           </div>
-          <a href="#" class="btn" id="checkout-btn">Finalizar Compra</a>
         </div>
       </section>
     </header>
@@ -76,11 +105,11 @@
     <div class="home-container" id="home">
       <section>
         <div class="content">
-          <h3>EXPERIMENTE O MELHOR CAFÉ ARTESANAL DA SUA REGIÃO</h3>
+          <h3>Experimente o melhor café artesanal da sua região</h3>
           <p>
-            Grãos 100% selecionados nas montanhas mais nobre do país, torrados
+            Grãos 100% selecionados nas montanhas mais nobres do país, torrados
             artesanalmente para proporcionar notas marcantes, aroma
-            inconfundível e momentos únicos de prazer a cada gole tomado.
+            inconfundível e momentos únicos de prazer a cada gole.
           </p>
           <a href="#menu" class="btn">Explore o Cardápio</a>
         </div>
@@ -92,10 +121,10 @@
       <h2 class="title">Sobre <span>Nós</span></h2>
       <div class="row">
         <div>
-          <img src="./Assets/Imagens/about-img.jpg" alt="sobre nós" />
+          <img src="./Assets/Imagens/about-img.jpg" alt="Sobre a Cafena" />
         </div>
         <div class="content">
-          <h3>A Paixão Pelo Café Perfeito em Cada Xícara</h3>
+          <h3>A paixão pelo café perfeito em cada xícara</h3>
           <p>
             Nascemos do desejo de transformar o hábito de tomar café em uma
             verdadeira experiência sensorial. Trabalhamos exclusivamente com
@@ -104,15 +133,16 @@
           </p>
           <p>
             Nosso espaço foi cuidadosamente planejado para oferecer um ambiente
-            acolhedor, ideal tanto para reuniões de trabalho quanto para relaxar
-            apreciando uma infusão fresca e saborosa.
+            acolhedor, ideal tanto para reuniões de trabalho quanto para
+            relaxar apreciando uma infusão fresca e saborosa.
           </p>
 
           <!-- Texto extra revelado ao clicar no botão -->
           <p class="extra-content" id="more-text">
             Nossos baristas são profissionais certificados dedicados à extração
             perfeita, controlando temperatura, pressão e tempo para extrair o
-            melhor de cada blend exclusivo da casa.
+            melhor de cada blend exclusivo da casa. Venha viver essa experiência
+            conosco.
           </p>
 
           <!-- Botão interativo de expansão -->
@@ -128,60 +158,69 @@
       <div class="box-container">
         <!-- Item 1 do menu -->
         <div class="box">
-          <img src="./Assets/Imagens/menu-1.png" alt="item-1" />
-          <h3 class="product-name">Café Com Canela</h3>
+          <img src="./Assets/Imagens/menu-1.png" alt="Café com Canela" />
+          <h3 class="product-name">Café com Canela</h3>
           <div class="price">
-            R$ <span class="product-price">15,99</span> <span> R$ 20,99</span>
+            R$ <span class="product-price">15,99</span>
+            <span>R$ 20,99</span>
           </div>
           <a href="#" class="btn add-to-cart-btn">Adicionar ao Carrinho</a>
         </div>
 
         <!-- Item 2 do menu -->
         <div class="box">
-          <img src="./Assets/Imagens/menu-2.png" alt="item-2" />
-          <h3 class="product-name">Café Com Leite Cremoso</h3>
+          <img src="./Assets/Imagens/menu-2.png" alt="Café com Leite Cremoso" />
+          <h3 class="product-name">Café com Leite Cremoso</h3>
           <div class="price">
-            R$ <span class="product-price">12,99</span> <span> R$ 15,99</span>
+            R$ <span class="product-price">12,99</span>
+            <span>R$ 15,99</span>
           </div>
           <a href="#" class="btn add-to-cart-btn">Adicionar ao Carrinho</a>
         </div>
 
         <!-- Item 3 do menu -->
         <div class="box">
-          <img src="./Assets/Imagens/menu-3.png" alt="item-3" />
+          <img src="./Assets/Imagens/menu-3.png" alt="Capuccino da Casa" />
           <h3 class="product-name">Capuccino da Casa</h3>
           <div class="price">
-            R$ <span class="product-price">13,99</span> <span> R$ 18,99</span>
+            R$ <span class="product-price">13,99</span>
+            <span>R$ 18,99</span>
           </div>
           <a href="#" class="btn add-to-cart-btn">Adicionar ao Carrinho</a>
         </div>
 
         <!-- Item 4 do menu -->
         <div class="box">
-          <img src="./Assets/Imagens/menu-4.png" alt="item-4" />
+          <img
+            src="./Assets/Imagens/menu-4.png"
+            alt="Mocha com Chocolate Belga"
+          />
           <h3 class="product-name">Mocha com Chocolate Belga</h3>
           <div class="price">
-            R$ <span class="product-price">11,99</span> <span> R$ 12,99</span>
+            R$ <span class="product-price">11,99</span>
+            <span>R$ 12,99</span>
           </div>
           <a href="#" class="btn add-to-cart-btn">Adicionar ao Carrinho</a>
         </div>
 
         <!-- Item 5 do menu -->
         <div class="box">
-          <img src="./Assets/Imagens/menu-5.png" alt="item-5" />
+          <img src="./Assets/Imagens/menu-5.png" alt="Espresso Duplo Especial" />
           <h3 class="product-name">Espresso Duplo Especial</h3>
           <div class="price">
-            R$ <span class="product-price">8,99</span> <span> R$ 13,99</span>
+            R$ <span class="product-price">8,99</span>
+            <span>R$ 13,99</span>
           </div>
           <a href="#" class="btn add-to-cart-btn">Adicionar ao Carrinho</a>
         </div>
 
         <!-- Item 6 do menu -->
         <div class="box">
-          <img src="./Assets/Imagens/menu-6.png" alt="item-6" />
+          <img src="./Assets/Imagens/menu-6.png" alt="Café Coado Rústico" />
           <h3 class="product-name">Café Coado Rústico</h3>
           <div class="price">
-            R$ <span class="product-price">11,20</span> <span> R$ 15,00</span>
+            R$ <span class="product-price">11,20</span>
+            <span>R$ 15,00</span>
           </div>
           <a href="#" class="btn add-to-cart-btn">Adicionar ao Carrinho</a>
         </div>
@@ -195,8 +234,7 @@
       <div class="box-container">
         <!-- Avaliação 1 -->
         <div class="box">
-          <img src="./Assets/Imagens/quote-img.png" alt="comentários" />
-          <h3>Comentário:</h3>
+          <img src="./Assets/Imagens/quote-img.png" alt="Aspas" />
           <p>
             "O melhor espresso da região! O ambiente é extremamente aconchegante
             e o atendimento impecável. Virei cliente fiel para começar bem o
@@ -204,48 +242,47 @@
           </p>
           <img
             src="./Assets/Imagens/pic-1.png"
-            alt="foto-cliente"
+            alt="João da Silva"
             class="user"
           />
           <h3>João da Silva</h3>
           <div class="stars">
             <img
-              width="30"
-              height="30"
+              width="20"
+              height="20"
               src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
-              alt="star"
+              alt="★"
             />
             <img
-              width="30"
-              height="30"
+              width="20"
+              height="20"
               src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
-              alt="star"
+              alt="★"
             />
             <img
-              width="30"
-              height="30"
+              width="20"
+              height="20"
               src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
-              alt="star"
+              alt="★"
             />
             <img
-              width="30"
-              height="30"
+              width="20"
+              height="20"
               src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
-              alt="star"
+              alt="★"
             />
             <img
-              width="30"
-              height="30"
+              width="20"
+              height="20"
               src="https://img.icons8.com/ios-glyphs/30/DBDB43/star-half-empty.png"
-              alt="star-half"
+              alt="½"
             />
           </div>
         </div>
 
         <!-- Avaliação 2 -->
         <div class="box">
-          <img src="./Assets/Imagens/quote-img.png" alt="comentários" />
-          <h3>Comentário:</h3>
+          <img src="./Assets/Imagens/quote-img.png" alt="Aspas" />
           <p>
             "Simplesmente apaixonada pelo Capuccino! A cremosidade e o
             equilíbrio dos sabores são perfeitos. Ótimo lugar para uma pausa no
@@ -253,42 +290,47 @@
           </p>
           <img
             src="./Assets/Imagens/pic-2.png"
-            alt="foto-cliente"
+            alt="Maria do Carmo"
             class="user"
           />
-          <h3>Maria Do Carmo</h3>
+          <h3>Maria do Carmo</h3>
           <div class="stars">
             <img
-              width="30"
-              height="30"
+              width="20"
+              height="20"
               src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
-              alt="star"
+              alt="★"
             />
             <img
-              width="30"
-              height="30"
+              width="20"
+              height="20"
               src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
-              alt="star"
+              alt="★"
             />
             <img
-              width="30"
-              height="30"
+              width="20"
+              height="20"
               src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
-              alt="star"
+              alt="★"
             />
             <img
-              width="30"
-              height="30"
+              width="20"
+              height="20"
+              src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
+              alt="★"
+            />
+            <img
+              width="20"
+              height="20"
               src="https://img.icons8.com/ios-glyphs/30/DBDB43/star-half-empty.png"
-              alt="star-half"
+              alt="½"
             />
           </div>
         </div>
 
         <!-- Avaliação 3 -->
         <div class="box">
-          <img src="./Assets/Imagens/quote-img.png" alt="comentários" />
-          <h3>Comentário:</h3>
+          <img src="./Assets/Imagens/quote-img.png" alt="Aspas" />
           <p>
             "Qualidade superior e muita dedicação em cada detalhe. Dá para
             perceber o cuidado na seleção dos grãos artesanais. Recomendo
@@ -296,40 +338,40 @@
           </p>
           <img
             src="./Assets/Imagens/pic-3.png"
-            alt="foto-cliente"
+            alt="Cliente satisfeito"
             class="user"
           />
-          <h3>Rhaldney Furtado</h3>
+          <h3>Carlos Mendes</h3>
           <div class="stars">
             <img
-              width="30"
-              height="30"
+              width="20"
+              height="20"
               src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
-              alt="star"
+              alt="★"
             />
             <img
-              width="30"
-              height="30"
+              width="20"
+              height="20"
               src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
-              alt="star"
+              alt="★"
             />
             <img
-              width="30"
-              height="30"
+              width="20"
+              height="20"
               src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
-              alt="star"
+              alt="★"
             />
             <img
-              width="30"
-              height="30"
+              width="20"
+              height="20"
               src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
-              alt="star"
+              alt="★"
             />
             <img
-              width="30"
-              height="30"
+              width="20"
+              height="20"
               src="https://img.icons8.com/ios-glyphs/30/DBDB43/star--v1.png"
-              alt="star"
+              alt="★"
             />
           </div>
         </div>
@@ -341,46 +383,59 @@
       <h2 class="title">Nosso <span>Endereço</span></h2>
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63202.45192783435!2d-34.915403700000006!3d-8.085849699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab1fad6113eb0d%3A0xce72a16ab5119e6d!2sThe%20Coffeetown%2C%20Co.!5e0!3m2!1spt-BR!2snl!4v1794176613032!5m2!1spt-BR!2snl"
-        width="600"
-        height="450"
-        style="border: 0"
         allowfullscreen=""
         loading="lazy"
         referrerpolicy="strict-origin-when-cross-origin"
+        title="Localização da Cafena"
       ></iframe>
     </section>
 
     <!-- Rodapé da página com redes sociais -->
     <section class="footer">
       <div class="share">
-        <a href="https://instagram.com" target="_blank">
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener"
+          title="Instagram"
+        >
           <img
-            width="50"
-            height="50"
+            width="42"
+            height="42"
             src="https://img.icons8.com/ios/50/ffffff/instagram-new--v1.png"
-            alt="instagram"
+            alt="Instagram"
           />
         </a>
         <a
           href="https://wa.me/5581999999999?text=Olá,%20gostaria%20de%20pedir%20um%20café!"
           target="_blank"
+          rel="noopener"
+          title="WhatsApp"
         >
           <img
-            width="50"
-            height="50"
+            width="42"
+            height="42"
             src="https://img.icons8.com/ios/50/ffffff/whatsapp--v1.png"
-            alt="whatsapp"
+            alt="WhatsApp"
           />
         </a>
-        <a href="https://facebook.com" target="_blank">
+        <a
+          href="https://facebook.com"
+          target="_blank"
+          rel="noopener"
+          title="Facebook"
+        >
           <img
-            width="50"
-            height="50"
+            width="42"
+            height="42"
             src="https://img.icons8.com/ios/50/ffffff/facebook-new.png"
-            alt="facebook"
+            alt="Facebook"
           />
         </a>
       </div>
+      <p class="credit">
+        &copy; 2026 <span>Cafena</span> — Todos os direitos reservados
+      </p>
     </section>
 
     <!-- Vinculando o arquivo JavaScript -->
