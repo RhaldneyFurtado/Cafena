@@ -4,7 +4,8 @@
   --black: #13131a;
   --bg: #010103;
   --border: 0.1rem solid rgba(255, 255, 255, 0.3);
-  font-size: 10px;
+  --text-light: #ccc;
+  font-size: 62.5%; /* 1rem = 10px */
 }
 
 /*Padronizando as configurações do navegador*/
@@ -15,7 +16,6 @@
   outline: none;
   border: none;
   text-decoration: none;
-  text-transform: capitalize;
   transition: 0.2s linear;
   font-family: "Roboto", sans-serif;
 }
@@ -25,24 +25,89 @@ body {
   background: var(--bg);
   max-width: 100vw;
   overflow-x: hidden;
+  color: #fff;
 }
 
 /*Rolagem suave da página*/
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  font-size: 62.5%;
+}
+
+/*Configuração do header*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  border-bottom: var(--border);
+  background: rgba(1, 1, 3, 0.95);
+  backdrop-filter: blur(8px);
+}
+
+/*Define o layout flexível e espaçamento interno do header*/
+.header section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 1.5rem;
+}
+
+/*Estilizando a logo no header*/
+.header .logo img {
+  height: 5.5rem;
+}
+
+/*Estilizando apenas os links da navbar*/
+.navbar {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.navbar a {
+  margin: 0 1rem;
+  font-size: 1.7rem;
+  color: #fff;
+  white-space: nowrap;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid transparent;
+}
+
+/*Efeito de hover nos links da navbar*/
+.navbar a:hover,
+.navbar a.active {
+  color: var(--main-color);
+  border-bottom-color: var(--main-color);
 }
 
 /*Estilizando os ícones da barra de navegação*/
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .icons img {
-  margin: 1rem;
+  width: 2.8rem;
+  height: 2.8rem;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 /*Efeito de hover nos ícones do cabeçalho*/
 .icons img:hover {
-  width: 40px;
-  height: 40px;
+  transform: scale(1.15);
   filter: invert(50%) sepia(29%) saturate(545%) hue-rotate(345deg)
     brightness(89%) contrast(87%);
 }
@@ -54,30 +119,94 @@ html {
 
 #cart-count {
   position: absolute;
-  top: -0.5rem;
-  right: -0.5rem;
+  top: -0.6rem;
+  right: -0.6rem;
   background: var(--main-color);
   color: #fff;
   border-radius: 50%;
-  padding: 0.1rem 0.5rem;
-  font-size: 1.2rem;
-  font-weight: bold;
+  min-width: 1.8rem;
+  height: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0 0.4rem;
+}
+
+/*Botão do menu mobile (hamburger)*/
+#menu-btn {
+  display: none;
+  cursor: pointer;
+}
+
+#menu-btn img {
+  width: 2.8rem;
+  height: 2.8rem;
+}
+
+/*Estilizando o formulário de busca que aparece ao clicar no ícone*/
+.search-form {
+  position: absolute;
+  top: 110%;
+  right: 2rem;
+  width: 35rem;
+  background: var(--black);
+  border: var(--border);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  transform: scaleY(0);
+  transform-origin: top;
+  opacity: 0;
+  transition: 0.25s ease;
+  z-index: 1001;
+}
+
+/*Ativa a exibição do formulário de busca*/
+.search-form.active {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+/*Estilizando o campo de input da busca*/
+.search-form input {
+  width: 100%;
+  background: transparent;
+  color: #fff;
+  font-size: 1.6rem;
+  padding: 0.5rem 0;
+}
+
+.search-form input::placeholder {
+  color: #888;
+}
+
+/*Estilizando o ícone/label dentro do formulário de busca*/
+.search-form label {
+  cursor: pointer;
+  font-size: 2rem;
+  color: var(--main-color);
+  margin-left: 1rem;
 }
 
 /*Estilizando o painel lateral deslizante do carrinho*/
 .cart-items-container {
-  position: absolute;
-  top: 100%;
+  position: fixed;
+  top: 0;
   right: -100%;
-  height: calc(100vh - 100%);
-  width: 35rem;
+  width: 38rem;
+  height: 100vh;
   background: var(--black);
   padding: 2rem;
-  transition: 0.3s linear;
-  box-shadow: -0.5rem 0 1rem rgba(0, 0, 0, 0.5);
+  transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -0.5rem 0 2rem rgba(0, 0, 0, 0.6);
   border-left: var(--border);
   overflow-y: auto;
-  z-index: 1000;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
 }
 
 /*Ativa a exibição do carrinho*/
@@ -86,54 +215,84 @@ html {
 }
 
 /*Estilizando o cabeçalho do painel do carrinho*/
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: var(--border);
+}
+
 .cart-header h3 {
   color: var(--main-color);
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
   text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+/*Botão de fechar o painel do carrinho*/
+.cart-close {
+  font-size: 2.8rem;
+  color: #fff;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.cart-close:hover {
+  color: #ff4d4d;
+}
+
+/*Container da lista de itens do carrinho*/
+.cart-items-list {
+  flex: 1;
+  overflow-y: auto;
 }
 
 /*Estilizando cada item dentro do carrinho*/
 .cart-item {
   position: relative;
-  margin: 1.5rem 0;
+  margin: 1.2rem 0;
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 1rem;
-  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 1.2rem;
+  border-radius: 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 /*Estilizando a imagem do item no carrinho*/
 .cart-item img {
-  height: 6rem;
-  width: 6rem;
+  height: 6.5rem;
+  width: 6.5rem;
   object-fit: cover;
+  border-radius: 0.4rem;
 }
 
 /*Estilizando o nome do item no carrinho*/
 .cart-item .content h3 {
   font-size: 1.5rem;
   color: #fff;
-  padding-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 /*Estilizando o preço do item no carrinho*/
 .cart-item .content .price {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   color: var(--main-color);
+  font-weight: 500;
 }
 
 /*Botão de remover item do carrinho*/
 .cart-item .remove-btn {
   position: absolute;
-  top: 1rem;
+  top: 0.8rem;
   right: 1rem;
-  font-size: 1.8rem;
+  font-size: 2rem;
   cursor: pointer;
-  color: #fff;
+  color: #aaa;
+  line-height: 1;
 }
 
 /*Efeito de hover no botão de remover item*/
@@ -141,101 +300,73 @@ html {
   color: #ff4d4d;
 }
 
+/*Mensagem de carrinho vazio*/
+.cart-empty {
+  text-align: center;
+  color: #888;
+  font-size: 1.6rem;
+  padding: 4rem 1rem;
+}
+
 /*Estilizando o rodapé do carrinho com o preço total*/
 .cart-total {
   border-top: var(--border);
-  padding-top: 1.5rem;
-  margin-top: 2rem;
+  padding-top: 1.8rem;
+  margin-top: 1.5rem;
 }
 
 /*Estilizando o texto do valor total*/
 .cart-total h3 {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   color: #fff;
   text-align: right;
+  margin-bottom: 1.5rem;
+}
+
+.cart-total h3 span {
+  color: var(--main-color);
 }
 
 /*Aplica largura total no botão dentro do carrinho*/
 .cart-items-container .btn {
   width: 100%;
   text-align: center;
-  margin-top: 1.5rem;
-}
-
-/*Aplica este estilo para todas as tags section*/
-section {
-  padding: 3rem 2rem;
-  margin: 0 auto;
-  max-width: 1200px;
-}
-
-/*Configuração do header*/
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 99;
-  border-bottom: var(--border);
-  background: var(--bg);
-}
-
-/*Define o layout flexível e espaçamento interno do header*/
-.header section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-  flex-wrap: wrap; /* Permite adaptação fluida em telas menores */
-  gap: 1.5rem;
-}
-
-/*Estilizando apenas os links da navbar*/
-.navbar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.navbar a {
-  margin: 0 1rem;
-  font-size: 1.8rem;
-  color: #fff;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-/*Efeito de hover nos links da navbar*/
-.navbar a:hover {
-  color: var(--main-color);
-  border-bottom: 0.2rem solid var(--main-color);
-  padding-bottom: 0.5rem;
-  font-size: 1.9rem;
+  margin-top: 0;
 }
 
 /*Configuração padrão dos botões*/
 .btn {
   background: var(--main-color);
   color: #fff;
-  padding: 1rem 3rem;
-  font-size: 1.7rem;
+  padding: 1.1rem 3rem;
+  font-size: 1.6rem;
   cursor: pointer;
   margin-top: 1rem;
   display: inline-block;
   border-radius: 0.5rem;
+  font-weight: 500;
+  letter-spacing: 0.03rem;
 }
 
 /*Efeito de hover nos botões*/
 .btn:hover {
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.12rem;
+  background: #c49a6c;
+}
+
+/*Aplica este estilo para todas as tags section*/
+section {
+  padding: 4rem 2rem;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 /*Configuração do container da página inicial*/
 .home-container {
-  background: url("./Assets/Imagens/home-img.jpg") no-repeat;
-  background-position: center;
-  background-size: cover;
+  background: url("./Assets/Imagens/home-img.jpg") no-repeat center/cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 /*Centralizando a section principal da tela de início*/
@@ -243,55 +374,44 @@ section {
   display: flex;
   align-items: center;
   min-height: 100vh;
+  padding-top: 8rem;
 }
 
 /*Definindo largura máxima da caixa de conteúdo*/
-.content {
-  max-width: 60rem;
+.home-container .content {
+  max-width: 62rem;
 }
 
 /*Estilizando o título principal da home*/
-.content h3 {
+.home-container .content h3 {
   color: #fff;
-  font-size: 5rem;
+  font-size: 4.8rem;
+  line-height: 1.25;
+  font-weight: 700;
 }
 
 /*Estilizando o parágrafo principal da home*/
-.content p {
-  color: #fff;
-  font-size: 2rem;
-  font-weight: 100;
-  line-height: 1.8;
-  padding: 1rem 0;
-}
-
-/*Esconde o conteúdo extra por padrão*/
-.extra-content {
-  display: none;
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 0.1rem solid rgba(255, 255, 255, 0.1);
-  color: #d3ad7f !important;
-}
-
-/*Classe que será ativada via JavaScript para mostrar o texto*/
-.extra-content.show {
-  display: block;
+.home-container .content p {
+  color: var(--text-light);
+  font-size: 1.8rem;
+  font-weight: 300;
+  line-height: 1.75;
+  padding: 1.5rem 0 2rem;
 }
 
 /*Estilizando os títulos genéricos das seções*/
 .title {
-  font-size: 4rem;
+  font-size: 3.6rem;
   color: var(--main-color);
   text-align: center;
-  text-transform: uppercase;
   margin-bottom: 4rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
 }
 
 /*Estilizando o span dentro do título genérico*/
 .title span {
   color: #fff;
-  text-transform: uppercase;
 }
 
 /*Estilizando o container da seção "Sobre nós"*/
@@ -299,8 +419,10 @@ section {
   display: flex;
   align-items: center;
   background-color: var(--black);
-  gap: 1.5rem;
+  gap: 2rem;
   flex-wrap: wrap;
+  border-radius: 0.8rem;
+  overflow: hidden;
 }
 
 .about .row > div {
@@ -309,72 +431,112 @@ section {
 
 .about .row img {
   width: 100%;
+  height: 100%;
   object-fit: cover;
+  min-height: 35rem;
 }
 
 /*Estilizando o conteúdo dentro da linha da seção "Sobre nós"*/
 .about .row .content {
-  padding: 2rem;
+  padding: 3rem 2.5rem;
 }
 
 /*Estilizando o título dentro da seção "Sobre nós"*/
 .about .row .content h3 {
-  font-size: 3rem;
+  font-size: 2.8rem;
   color: #fff;
+  margin-bottom: 1rem;
+  line-height: 1.3;
 }
 
 /*Estilizando os parágrafos dentro da seção "Sobre nós"*/
 .about .row .content p {
-  font-size: 1.6rem;
-  color: #fff;
-  padding: 1rem 0;
-  line-height: 1.8;
+  font-size: 1.55rem;
+  color: var(--text-light);
+  padding: 0.8rem 0;
+  line-height: 1.75;
+}
+
+/*Esconde o conteúdo extra por padrão*/
+.extra-content {
+  display: none;
+  margin-top: 1rem;
+  padding-top: 1.2rem;
+  border-top: 0.1rem solid rgba(255, 255, 255, 0.1);
+  color: var(--main-color) !important;
+}
+
+/*Classe que será ativada via JavaScript para mostrar o texto*/
+.extra-content.show {
+  display: block;
+  animation: fadeIn 0.35s ease;
+}
+
+/*Animação de entrada do texto extra*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /*Estilizando o container em grid (usado no menu e nas avaliações)*/
 .box-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+  gap: 2rem;
 }
 
 /*Estilizando cada caixa dentro do container do menu*/
 .menu .box-container .box {
   text-align: center;
   border: var(--border);
-  padding: 5rem;
-  cursor: pointer;
+  padding: 3.5rem 2rem;
+  border-radius: 0.6rem;
+  transition: 0.25s;
+  background: rgba(255, 255, 255, 0.02);
 }
 
 /*Estilizando a imagem dentro de cada caixa do menu*/
 .menu .box-container .box img {
-  height: 10rem;
+  height: 11rem;
+  transition: 0.3s;
 }
 
 /*Estilizando o título dentro de cada caixa do menu*/
 .menu .box-container .box h3 {
   color: #fff;
-  font-size: 2rem;
-  padding: 1rem 0;
+  font-size: 1.9rem;
+  padding: 1.2rem 0 0.5rem;
+  font-weight: 500;
 }
 
 /*Estilizando o preço dentro de cada caixa do menu*/
 .menu .box-container .box .price {
   color: #fff;
-  font-size: 2.5rem;
-  padding: 0.5rem 0;
+  font-size: 2.3rem;
+  padding: 0.5rem 0 1.2rem;
+  font-weight: 600;
 }
 
 /*Estilizando apenas o preço antigo (segundo span) com o risco*/
-.menu .box-container .box .price span:nth-child(2) {
-  font-size: 1.5rem;
+.menu .box-container .box .price span:last-child {
+  font-size: 1.45rem;
   text-decoration: line-through;
-  font-weight: 100;
+  font-weight: 300;
+  color: #888;
+  margin-left: 0.6rem;
 }
 
 /*Estilizando a caixa do menu ao passar o mouse*/
 .menu .box-container .box:hover {
   background: #fff;
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
 }
 
 /*Estilizando os elementos dentro da caixa do menu ao passar o mouse*/
@@ -382,27 +544,49 @@ section {
   color: var(--black);
 }
 
+.menu .box-container .box:hover img {
+  transform: scale(1.08);
+}
+
+.menu .box-container .box:hover .price span:last-child {
+  color: #666;
+}
+
+.menu .box-container .box:hover .btn {
+  background: var(--black);
+  color: #fff;
+}
+
 /*Estilizando cada caixa da seção de avaliações*/
 .review .box-container .box {
   border: var(--border);
   text-align: center;
-  padding: 3rem 2rem;
+  padding: 3rem 2.2rem;
+  border-radius: 0.6rem;
+  background: rgba(255, 255, 255, 0.02);
+  transition: 0.25s;
+}
+
+.review .box-container .box:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-4px);
 }
 
 /*Estilizando os parágrafos dentro da caixa de avaliação*/
 .review .box-container .box p {
   font-size: 1.5rem;
-  color: #fff;
-  padding: 2rem 0;
-  line-height: 1.8;
+  color: var(--text-light);
+  padding: 1.8rem 0;
+  line-height: 1.75;
   font-weight: 300;
+  font-style: italic;
 }
 
 /*Estilizando o título do cliente dentro da caixa de avaliação*/
 .review .box-container .box h3 {
   color: #fff;
-  font-size: 2rem;
-  margin: 1rem 0;
+  font-size: 1.9rem;
+  margin: 1rem 0 0.5rem;
 }
 
 /*Estilizando a foto de perfil do cliente*/
@@ -411,6 +595,20 @@ section {
   width: 7rem;
   border-radius: 50%;
   object-fit: cover;
+  border: 3px solid var(--main-color);
+}
+
+/*Estilizando as estrelas de avaliação*/
+.review .box-container .box .stars {
+  display: flex;
+  justify-content: center;
+  gap: 0.2rem;
+  margin-top: 0.8rem;
+}
+
+.review .box-container .box .stars img {
+  width: 2rem;
+  height: 2rem;
 }
 
 /*Estilizando a seção de endereço*/
@@ -418,84 +616,155 @@ section {
   display: flex;
   align-items: center;
   flex-direction: column;
+  gap: 2rem;
 }
 
 .address iframe {
   width: 100%;
   max-width: 900px;
-  height: 450px;
+  height: 420px;
+  border-radius: 0.8rem;
+  border: var(--border) !important;
 }
 
 /*Estilizando a área do rodapé*/
 .footer {
   text-align: center;
+  padding: 3rem 2rem 4rem;
+  border-top: var(--border);
+  margin-top: 2rem;
 }
 
 /*Estilizando o container dos ícones no rodapé*/
 .footer .share {
-  padding: 1rem 0;
+  padding: 1rem 0 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
 }
 
 /*Estilizando os ícones de redes sociais do rodapé*/
-.footer .share img {
-  margin: 0.3rem;
-  cursor: pointer;
+.footer .share a img {
+  width: 4.2rem;
+  height: 4.2rem;
   border-radius: 50%;
-  padding: 1rem;
+  padding: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: 0.25s;
 }
 
 /*Efeito de hover nos ícones do rodapé*/
-.footer .share img:hover {
+.footer .share a img:hover {
   background: var(--main-color);
+  border-color: var(--main-color);
+  transform: translateY(-3px);
 }
 
-/* ==========================================
-   AJUSTES FINOS DE RESPONSIVIDADE PARA CELULAR
-   ========================================== */
+/*Créditos no rodapé*/
+.footer .credit {
+  font-size: 1.4rem;
+  color: #777;
+  margin-top: 1rem;
+}
 
-@media (max-width: 768px) {
-  /* Organiza os elementos do header em pilha centralizada no celular */
+.footer .credit span {
+  color: var(--main-color);
+}
+
+/*Tablets e telas médias*/
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+
   .header section {
-    padding: 1rem;
-    gap: 1rem;
+    padding: 1.2rem 1.5rem;
+  }
+
+  .home-container .content h3 {
+    font-size: 3.8rem;
+  }
+}
+
+/*Celulares*/
+@media (max-width: 768px) {
+  /*Exibe o botão hamburger no mobile*/
+  #menu-btn {
+    display: block;
+  }
+
+  /*Organiza a navbar em menu vertical no mobile*/
+  .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--black);
+    border-top: var(--border);
+    border-bottom: var(--border);
     flex-direction: column;
-    justify-content: center;
+    padding: 1rem 0;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: 0.3s ease;
   }
 
-  /* Reduz o tamanho da logo no mobile */
-  .header .logo img {
-    height: 4rem;
+  /*Ativa a exibição do menu mobile*/
+  .navbar.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 
-  /* Compacta os links da navbar para caberem confortavelmente lado a lado */
   .navbar a {
-    margin: 0.3rem 0.6rem;
-    font-size: 1.4rem;
+    display: block;
+    margin: 1.2rem 2rem;
+    font-size: 1.8rem;
+    padding: 0.5rem 0;
   }
 
-  /* Ajusta o tamanho da caixa de pesquisa */
-  .search-box {
-    padding: 0.3rem 0.6rem;
+  /*Ajusta o formulário de busca no mobile*/
+  .search-form {
+    width: 90%;
+    right: 5%;
   }
 
-  .search-box input {
-    width: 9rem;
-    font-size: 1.3rem;
+  /*Ajusta o painel do carrinho no mobile*/
+  .cart-items-container {
+    width: 100%;
+    max-width: 38rem;
   }
 
-  /* Ajusta o tamanho dos ícones */
-  .icons img {
-    width: 2.4rem;
-    height: 2.4rem;
-    margin: 0.3rem;
+  /*Reduz o título principal da home para não estourar telas de smartphone*/
+  .home-container .content h3 {
+    font-size: 3rem;
   }
 
-  /* Reduz o título principal da home para não estourar telas de smartphone */
-  .content h3 {
-    font-size: 2.8rem;
+  .home-container .content p {
+    font-size: 1.55rem;
   }
 
-  .content p {
-    font-size: 1.5rem;
+  .title {
+    font-size: 3rem;
+  }
+
+  .about .row .content {
+    padding: 2.5rem 2rem;
+  }
+
+  .menu .box-container .box {
+    padding: 3rem 1.5rem;
+  }
+}
+
+/*Telas muito pequenas*/
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+
+  .home-container .content h3 {
+    font-size: 2.6rem;
+  }
+
+  .cart-items-container {
+    width: 100%;
   }
 }
