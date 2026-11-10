@@ -1,4 +1,4 @@
-# ☕ Coffee Shop - Página Web Interativa
+# ☕ Cafena - Página Web Interativa
 
 Uma página web moderna e responsiva para cafeteria, desenvolvida exclusivamente com **HTML5, CSS3 e JavaScript puro**. 
 
