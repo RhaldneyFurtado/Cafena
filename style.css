@@ -89,7 +89,7 @@ html {
 .icons {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.9rem;
 }
 
 .icons a {
@@ -99,8 +99,8 @@ html {
 }
 
 .icons img {
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 2.6rem;
+  height: 2.6rem;
   cursor: pointer;
   transition: 0.2s;
 }
@@ -691,6 +691,16 @@ section {
   /*Exibe o botão hamburger no mobile*/
   #menu-btn {
     display: block;
+  }
+
+ /*Melhora o espaçamento dos ícones na navbar no mobile*/
+  .icons {
+    gap: 1.4rem;
+  }
+
+  .icons img {
+    width: 2.6rem;
+    height: 2.6rem;
   }
 
   /*Organiza a navbar em menu vertical no mobile*/
