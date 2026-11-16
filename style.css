@@ -369,12 +369,26 @@ section {
   align-items: center;
 }
 
-/*Centralizando a section principal da tela de início*/
+/*Configuração do container da página inicial*/
+.home-container {
+  background: url("./Assets/Imagens/home-img.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/*Centralizando verticalmente e alinhando à esquerda na tela de início*/
 .home-container section {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   min-height: 100vh;
+<<<<<<< HEAD
   padding-top: 8rem;
+=======
+  max-width: 100%; /* Sobrescreve os 1200px da regra global section */
+  margin: 0;
+  padding: 0 8%; /* Controla a distância da borda esquerda */
+>>>>>>> 943dd28 (style: ajusta alinhamento do texto na secao principal e corrige reset CSS)
 }
 
 /*Definindo largura máxima da caixa de conteúdo*/
