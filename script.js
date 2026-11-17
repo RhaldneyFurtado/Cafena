@@ -1,4 +1,4 @@
-/*INTERATIVIDADE DO SITE (PESQUISA, CARRINHO E BOTÕES) */
+/* INTERATIVIDADE DO SITE (PESQUISA, CARRINHO E BOTÕES) */
 
 /* Selecionando os elementos principais no DOM */
 let searchBtn = document.querySelector("#search-btn");
@@ -38,7 +38,6 @@ if (searchInput) {
   searchInput.addEventListener("keyup", (event) => {
     let termoBusca = searchInput.value.toLowerCase().trim();
     let produtos = document.querySelectorAll(".menu .box");
-    let encontrado = false;
 
     produtos.forEach((box) => {
       let nomeCafé = box.querySelector(".product-name");
@@ -47,9 +46,7 @@ if (searchInput) {
       if (termoBusca === "" || nome.includes(termoBusca)) {
         box.style.display = "block";
 
-        /* Destaca visualmente o produto encontrado */
         if (termoBusca !== "" && nome.includes(termoBusca)) {
-          encontrado = true;
           box.style.border = "0.2rem solid var(--main-color)";
         } else {
           box.style.border = "";
@@ -76,7 +73,6 @@ if (searchInput) {
 
 /* FUNCIONALIDADE DO CARRINHO */
 
-/* Funcionalidade do ícone do carrinho (abre/fecha o painel) */
 if (cartBtn) {
   cartBtn.onclick = (event) => {
     event.preventDefault();
@@ -86,14 +82,13 @@ if (cartBtn) {
   };
 }
 
-/* Botão de fechar o painel do carrinho */
 if (cartCloseBtn) {
   cartCloseBtn.onclick = () => {
     cartContainer.classList.remove("active");
   };
 }
 
-/* Funcionalidade de adicionar ao carrinho */
+/* Adicionar ao carrinho */
 let botoesComprar = document.querySelectorAll(".add-to-cart-btn");
 
 botoesComprar.forEach((botao) => {
@@ -105,7 +100,6 @@ botoesComprar.forEach((botao) => {
     let precoCafé = cardProduto.querySelector(".product-price").innerText;
     let imagemCafé = cardProduto.querySelector("img").src;
 
-    /* Verifica se o produto já existe no carrinho para incrementar a quantidade */
     let itemExistente = carrinho.find((item) => item.nome === nomeCafé);
 
     if (itemExistente) {
@@ -119,11 +113,9 @@ botoesComprar.forEach((botao) => {
       });
     }
 
-    /* Salva no localStorage e atualiza a interface */
     salvarCarrinho();
     atualizarCarrinhoUI();
 
-    /* Feedback visual no botão */
     botao.innerText = "Adicionado ✓";
     botao.style.background = "#4caf50";
 
@@ -134,12 +126,10 @@ botoesComprar.forEach((botao) => {
   };
 });
 
-/* Salva o carrinho no localStorage do navegador */
 function salvarCarrinho() {
   localStorage.setItem("cafena-cart", JSON.stringify(carrinho));
 }
 
-/* Atualizando a interface do carrinho */
 function atualizarCarrinhoUI() {
   if (!cartItemsList) return;
 
@@ -147,9 +137,8 @@ function atualizarCarrinhoUI() {
   let totalGeral = 0;
   let totalItens = 0;
 
-  /* Exibe mensagem quando o carrinho está vazio */
   if (carrinho.length === 0) {
-    cartItemsList.innerHTML = `<p class="cart-empty">Seu carrinho está vazio</p>`;
+    cartItemsList.innerHTML = `<p class="cart-empty" style="text-align:center; color:#aaa; margin-top:2rem;">Seu carrinho está vazio</p>`;
   } else {
     carrinho.forEach((item, index) => {
       let precoNumerico = parseFloat(item.preco.replace(",", "."));
@@ -170,7 +159,6 @@ function atualizarCarrinhoUI() {
     });
   }
 
-  /* Atualiza o valor total e o contador de itens */
   if (cartTotalPrice) {
     cartTotalPrice.innerText = totalGeral.toFixed(2).replace(".", ",");
   }
@@ -179,14 +167,12 @@ function atualizarCarrinhoUI() {
   }
 }
 
-/* Removendo um item do carrinho */
 function removerItem(index) {
   carrinho.splice(index, 1);
   salvarCarrinho();
   atualizarCarrinhoUI();
 }
 
-/* Botão finalizar compra */
 let checkoutBtn = document.querySelector("#checkout-btn");
 if (checkoutBtn) {
   checkoutBtn.onclick = (event) => {
@@ -197,7 +183,6 @@ if (checkoutBtn) {
       return;
     }
 
-    /* Monta um resumo do pedido para o usuário */
     let total = cartTotalPrice ? cartTotalPrice.innerText : "0,00";
     let resumo = carrinho
       .map((item) => `• ${item.nome} (${item.quantidade || 1}x)`)
@@ -207,7 +192,6 @@ if (checkoutBtn) {
       `Pedido realizado com sucesso!\n\n${resumo}\n\nTotal: R$ ${total}\n\nObrigado por comprar na Cafena!`
     );
 
-    /* Limpa o carrinho após a finalização */
     carrinho = [];
     salvarCarrinho();
     atualizarCarrinhoUI();
@@ -215,7 +199,7 @@ if (checkoutBtn) {
   };
 }
 
-/* Funcionalidade do botão Saiba Mais */
+/* Botão Saiba Mais */
 let saberMaisBtn = document.querySelector("#saber-mais-btn");
 let moreText = document.querySelector("#more-text");
 
@@ -223,25 +207,21 @@ if (saberMaisBtn && moreText) {
   saberMaisBtn.onclick = (event) => {
     event.preventDefault();
     moreText.classList.toggle("show");
-
-    if (moreText.classList.contains("show")) {
-      saberMaisBtn.innerText = "Mostrar Menos";
-    } else {
-      saberMaisBtn.innerText = "Saiba Mais";
-    }
+    saberMaisBtn.innerText = moreText.classList.contains("show")
+      ? "Mostrar Menos"
+      : "Saiba Mais";
   };
 }
 
-/* Funcionalidade do botão hamburger (menu mobile) */
+/* FUNCIONALIDADE DO MENU HAMBÚRGUER (MOBILE) */
 if (menuBtn && navbar) {
   menuBtn.onclick = (event) => {
     event.preventDefault();
     navbar.classList.toggle("active");
-    cartContainer.classList.remove("active"); /* Fecha o carrinho se estiver aberto */
+    cartContainer.classList.remove("active");
     if (searchForm) searchForm.classList.remove("active");
   };
 
-  /* Fecha o menu ao clicar em qualquer link da navegação */
   document.querySelectorAll(".navbar a").forEach((link) => {
     link.onclick = () => {
       navbar.classList.remove("active");
@@ -249,5 +229,10 @@ if (menuBtn && navbar) {
   });
 }
 
-/* Inicializa a interface do carrinho ao carregar a página */
+/* Fecha elementos ao rolar a página */
+window.onscroll = () => {
+  if (navbar) navbar.classList.remove("active");
+  if (searchForm) searchForm.classList.remove("active");
+};
+
 atualizarCarrinhoUI();
